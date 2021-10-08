@@ -3,6 +3,7 @@ package com.example.autoecole.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.time.LocalDate;
 
 @Table(name = "client", schema = "auto")
@@ -26,7 +27,8 @@ public class Client {
     @Column(name = "date_naissance")
     private LocalDate dateNaissance;
 
-//    @Column(name = "SEANCE_CODE_seance_Id", nullable = false)
-//    private Integer sceanceId;
+    @ManyToOne
+    @JoinColumn(name = "SEANCE_CODE_seance_Id")
+    private SeanceCode seanceCode;
 
 }
